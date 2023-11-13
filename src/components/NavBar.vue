@@ -3,7 +3,7 @@
 <nav class="bg-white border-gray-200 dark:bg-gray-900 p-4">
     <div class="flex items-center justify-between">
       <a href="http://pabellon.tecnm.mx/" class="flex items-center">
-        <img src="../../nav-logo.png" class="h-8 mr-3" alt="Flowbite Logo" />
+        <img src="/nav-logo.png" class="h-8 mr-3" alt="Flowbite Logo" />
         <span class="text-2xl font-semibold dark:text-white">Monitorización pasto</span>
       </a>
       <button data-collapse-toggle="navbar-default" type="button" class="block md:hidden">

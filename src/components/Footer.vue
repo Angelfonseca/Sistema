@@ -7,7 +7,7 @@
             Tel: 4495026831
           </div>
       <div class="imagen-derecha">
-        <img src="../../footer.png" alt="FooterImg">
+        <img src="/footer.png" alt="FooterImg">
       </div>
     </footer>
   </main>
