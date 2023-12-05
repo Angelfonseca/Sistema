@@ -11,20 +11,34 @@ export function useData() {
   };
 }
 
+export function plantasData() {
+  const plantas = ref([]);
+
+  return {
+    plantas
+  };
+}
+
 export default {
   setup() {
     const { sistemas, place } = useData();
+    const { plantas } = plantasData();
 
     onMounted(async () => {
       try {
-        // Use the correct base URL for your API
-        const response = await axios.get('http://192.168.100.230:3000/Api/sistemas');
-        sistemas.value = response.data;
-        place.value = response.data.map(item => item.place);
+
+        const sistemasResponse = await axios.get('http://localhost:3000/Api/sistemas');
+        sistemas.value = sistemasResponse.data;
+        place.value = sistemasResponse.data.map(item => item.place);
         console.log(sistemas.value);
+
+        const plantasResponse = await axios.get('http://localhost:3000/Api/plantas');
+        plantas.value = plantasResponse.data;
+        console.log(plantas.value);
       } catch (error) {
         console.error('Error al obtener datos:', error);
       }
     });
-  }
+  },
 };
+

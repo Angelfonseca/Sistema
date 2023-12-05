@@ -11,24 +11,30 @@ const fecha = ref('');
 
 onMounted(async () => {
   try {
-    // Fetch data for sistemas
-    const sistemasResponse = await axios.get('http://localhost:3000/Api/sistemas');
-    place.value = sistemasResponse.data.map(item => item.place)[0]; // Assuming you want the first place
+    // Obtener sensores
+    const sensoresResponse = await axios.get('http://localhost:3000/api/sensores');
+    const sensorData = sensoresResponse.data[0];
 
-    // Fetch data for sensores
-    const sensoresResponse = await axios.get('http://localhost:3000/Api/sensores');
-    const sensorData = sensoresResponse.data[0]; // Assuming there is only one sensor data in the response
-    
-    sensTem.value = `Temperatura: ${sensorData.sens_temp}`;
-    sensHum.value = `Humedad: ${sensorData.sens_hum}`;
-    sensSoilh.value = `Suelo Húmedo: ${sensorData.sens_soilh}`;
-    fecha.value = `Fecha: ${new Date(sensorData.createdAt).toLocaleString()}`;
+    // Verificar si el lugar es "Modulo 1" antes de continuar
+    if (sensorData.place === "Modulo 1") {
+      // Asignar valor a place
+      place.value = sensorData.place;
 
-    console.log(place.value, sensTem.value, sensHum.value, sensSoilh.value, fecha.value);
+      // Resto del código
+      sensTem.value = `Temperatura: ${sensorData.sens_temp}`;
+      sensHum.value = `Humedad: ${sensorData.sens_hum}`;
+      sensSoilh.value = `Suelo Húmedo: ${sensorData.sens_soilh}`;
+      fecha.value = `Fecha: ${new Date(sensorData.createdAt).toLocaleString()}`;
+
+      console.log(place.value, sensTem.value, sensHum.value, sensSoilh.value, fecha.value);
+    } else {
+      console.log('El lugar no es "Modulo 1", no se realizarán operaciones.');
+    }
   } catch (error) {
     console.error('Error al obtener datos:', error);
   }
 });
+
 </script>
 
 <template>
@@ -59,7 +65,7 @@ onMounted(async () => {
 
         <div class="w-1/2 bg-opacity-20 bg-cover" style="position: relative;">
           <img src="@/assets/back.png" alt="Imagen de fondo"
-            style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5;" />
+            style="width: 100%; height: 85%; object-fit: cover; opacity: 0.5;" />
         </div>
       </div>
     </main>

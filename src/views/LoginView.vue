@@ -11,7 +11,7 @@ const form = ref({
 
 const login = () => {
   hasError.value = false
-  fetch('http://10.10.48.100:3000/api/users/auth/login', {
+  fetch('http://localhost:3000/api/users/auth/login', {
     method: "POST",
     body: JSON.stringify(form.value),
     headers: {"Content-type": "application/json; charset=UTF-8"}
@@ -43,7 +43,7 @@ if (isAuth) {
   <section class="bg-gray-50 dark:bg-gray-900">
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-            <img class="w-8 h-8 mr-2" src="../../../public/nav-logo.png" alt="logo">
+            <img class="w-8 h-8 mr-2" src="/nav-logo.png" alt="logo">
             Gestión de riego pasto    
         </a>
         <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">

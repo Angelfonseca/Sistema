@@ -20,11 +20,6 @@ const router = createRouter({
       name: 'Monitorizacion',
       component: () => import('../views/MonitorizarView.vue'), 
     },
-    {
-      path: '/upload',
-      name: 'upload',
-      component: () => import('../views/UploadView.vue'), 
-    }
   ],
 });
 export function Logged() {
