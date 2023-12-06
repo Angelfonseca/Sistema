@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
+
 const router = useRouter()
 const hasError = ref(false)
 const form = ref({
@@ -11,7 +12,7 @@ const form = ref({
 
 const login = () => {
   hasError.value = false
-  fetch('http://localhost:3000/api/users/auth/login', {
+  fetch('https://main.d4u1bt98jekfn.amplifyapp.com:3000/api/users/auth/login', {
     method: "POST",
     body: JSON.stringify(form.value),
     headers: {"Content-type": "application/json; charset=UTF-8"}

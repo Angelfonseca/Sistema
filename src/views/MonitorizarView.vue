@@ -2,6 +2,9 @@
 import BaseLayout from '../layout/BaseLayout.vue';
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
+import { Logged } from '../router';
+
+Logged();
 
 const place = ref('');
 const sensTem = ref('');
@@ -12,7 +15,7 @@ const fecha = ref('');
 onMounted(async () => {
   try {
     // Obtener sensores
-    const sensoresResponse = await axios.get('http://localhost:3000/api/sensores');
+    const sensoresResponse = await axios.get('https://main.d4u1bt98jekfn.amplifyapp.com/:3000/api/sensores');
     const sensorData = sensoresResponse.data[0];
 
     // Verificar si el lugar es "Modulo 1" antes de continuar
