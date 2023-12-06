@@ -11,7 +11,7 @@ const place = ref('');
 onMounted(async () => {
   try {
     // Obtener sensores
-    const sensoresResponse = await axios.get('arn:aws:execute-api:us-east-1:132568441391:luxc0pah44/*/*/api/sensores');
+    const sensoresResponse = await axios.get('https://ac1fgslvjk.execute-api.us-east-1.amazonaws.com/api/api/sensores');
     const sensorData = sensoresResponse.data[0];
     place.value = sensorData.place;
     

@@ -12,7 +12,7 @@ const form = ref({
 
 const login = () => {
   hasError.value = false
-  fetch('arn:aws:execute-api:us-east-1:132568441391:luxc0pah44/*/*/api/users/auth/login', {
+  fetch('https://ac1fgslvjk.execute-api.us-east-1.amazonaws.com/api/api/users/auth/login', {
     method: "POST",
     body: JSON.stringify(form.value),
     headers: {"Content-type": "application/json; charset=UTF-8"}

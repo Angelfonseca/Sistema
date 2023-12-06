@@ -15,7 +15,7 @@ const fecha = ref('');
 onMounted(async () => {
   try {
     // Obtener sensores
-    const sensoresResponse = await axios.get('arn:aws:execute-api:us-east-1:132568441391:luxc0pah44/*/*/api/sensores');
+    const sensoresResponse = await axios.get('https://ac1fgslvjk.execute-api.us-east-1.amazonaws.com/api/api/sensores');
     const sensorData = sensoresResponse.data[0];
 
     // Verificar si el lugar es "Modulo 1" antes de continuar
